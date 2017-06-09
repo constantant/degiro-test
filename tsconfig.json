@@ -1,0 +1,18 @@
+{
+  "compileOnSave": false,
+  "compilerOptions": {
+    "outDir": "build",
+    "sourceRoot": "src",
+    "module": "commonjs",
+    "sourceMap": true,
+    "experimentalDecorators": true,
+    "target": "es5",
+    "typeRoots": [
+      "src"
+    ],
+    "lib": [
+      "es2016",
+      "dom"
+    ]
+  }
+}

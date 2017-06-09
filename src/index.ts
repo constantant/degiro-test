@@ -4,30 +4,21 @@ import { sortProducts } from './app';
 import { PRODUCTS1, PRODUCTS2, PRODUCTS3 } from './data';
 
 
-export module SomeModuleTests {
+export class SomeModuleTests {
 
-    @Test()
-    public Tas(PRODUCTS1) {
-        let instance = new SomeModule();
+    @Test('Task 1')
+    @TestCase("Case 1")
+    public Case1() {
+        const result = sortProducts(PRODUCTS1); // {highest: [...], lowest: [...]}
 
-        Expect(instance.status).toBe(true);
+        Expect(result.highest instanceof Array).toBe(true);
     }
 
-    @Test("Name should be null by default")
-    public nameShouldBeNullByDefault() {
-        let instance = new SomeModule();
+    @TestCase("Case 2")
+    public Case2() {
+        const result = sortProducts(PRODUCTS1); // {highest: [...], lowest: [...]}
 
-        Expect(instance.name).toBe(null);
-    }
-
-    @TestCase("first name")
-    @TestCase("apples")
-    public shouldSetNameCorrectly(name: string) {
-        let instance = new SomeModule();
-
-        instance.setName(name);
-
-        Expect(instance.name).toBe(name);
+        Expect(result.lowest instanceof Array).toBe(true);
     }
 
 }
