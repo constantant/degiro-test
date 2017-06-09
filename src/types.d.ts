@@ -7,7 +7,7 @@ interface Options {
     size: number
 }
 
-interface Chache {
+interface Cache {
     products: ProductItem[]
     options?: Options
 }

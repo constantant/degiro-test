@@ -30,7 +30,7 @@ export function sortProducts(products: ProductItem[], options?: Options): Result
 }
 
 
-let _cache: Chache;
+let _cache: Cache;
 
 function isModified(products: ProductItem[], options?: Options): boolean {
     if (
