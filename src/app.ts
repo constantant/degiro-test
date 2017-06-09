@@ -6,7 +6,7 @@ export function sortProducts(products: ProductItem[], options?: Options): Result
         }
     }
 
-    let size = typeof options.size === 'number' ? options.size : 5,
+    let size = options && typeof options.size === 'number' ? options.size : 5,
         productsLength = products.length;
 
     if (size < 1 || size > productsLength) {
