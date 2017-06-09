@@ -1,4 +1,11 @@
 export function sortProducts(products: ProductItem[], options?: Options): Result {
+    if (!isModified(products, options)) {
+        return {
+            highest: null,
+            lowest: null
+        }
+    }
+
     let size = typeof options.size === 'number' ? options.size : 5,
         productsLength = products.length;
 
@@ -20,4 +27,26 @@ export function sortProducts(products: ProductItem[], options?: Options): Result
         highest: sortedList.splice(productsLength - highestSize - 1, highestSize),
         lowest: lowestSize < 1 ? null : sortedList.splice(0, lowestSize)
     }
+}
+
+
+let _cache: Chache;
+
+function isModified(products: ProductItem[], options?: Options): boolean {
+    if (
+        options.size === _cache.options.size ||
+        (
+            products.length === _cache.products.length &&
+            !products.find(
+                (product: ProductItem, index: number) => product.price !== _cache.products[ index ].price || product.id !== _cache.products[ index ].id
+            )
+        )
+    ) {
+        return false;
+    }
+
+    _cache.products = products;
+    _cache.options = options;
+
+    return true;
 }
