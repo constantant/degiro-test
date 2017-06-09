@@ -30,11 +30,13 @@ export function sortProducts(products: ProductItem[], options?: Options): Result
 }
 
 
-let _cache: Cache;
+let _cache: CallCache = {
+    products: []
+};
 
 function isModified(products: ProductItem[], options?: Options): boolean {
     if (
-        options.size === _cache.options.size ||
+        (options !== _cache.options && options.size === _cache.options.size) ||
         (
             products.length === _cache.products.length &&
             !products.find(

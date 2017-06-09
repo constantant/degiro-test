@@ -7,8 +7,8 @@ interface Options {
     size: number
 }
 
-interface Cache {
-    products: ProductItem[]
+interface CallCache {
+    products: ProductItem[] | null
     options?: Options
 }
 
