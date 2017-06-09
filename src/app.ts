@@ -39,8 +39,8 @@ function isModified(products: ProductItem[], options?: Options): boolean {
         return false;
     }
 
-    _cache.products = products;
-    _cache.options = options;
+    _cache.products = Object.assign([], products);
+    _cache.options = Object.assign({}, options);
 
     return true;
 }
